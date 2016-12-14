@@ -1,0 +1,27 @@
+<!--
+Basic html template base file.
+Includes jquery and bootstrap. 
+Matthew Weaver, 2016
+-->
+{% load staticfiles %}
+<!doctype html>
+<html>
+        <head>
+            <title>
+                {% block title %}
+                    The title of my page
+                {% endblock title %}
+            </title>
+                {% block header %}
+                    <!-- Links to jquery and bootstrap -->
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                {% endblock header %}            
+        </head>
+        <body>
+            {% block content %}
+                Base.html body content
+            {% endblock content %}  
+        </body>
+</html>
+

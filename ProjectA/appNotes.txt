@@ -1,0 +1,23 @@
+
+Steps
+-----
+1. Create a projects folder (if it does not already exist)
+2. from the projects folder, execute django-admin startproject [project name]
+3. From the project folder, execute python manage.py startapp [app name]
+4. To run the Python web server, execute python manage.py runserver 8080
+
+Remember to add the name of your app to the INSTALLED_APPS list in the settings file. 
+Remember to add Git repository
+
+ 
+
+
+
+
+
+
+
+
+
+
+
