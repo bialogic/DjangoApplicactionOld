@@ -1,0 +1,28 @@
+<!--
+HTML index page - derives from base.html
+Matthew Weaver, 2016
+-->
+{% extends 'base.html' %}
+{% block title %}
+    Homepage - {{ block.super }}
+{% endblock title %}
+{% block content %}
+    |<br>
+    <h1>Objectivity cognitive services playground</h1>
+    <br>
+    <p>This site serves 2 purposes:</p>
+    <ul class="list-group">
+        <li class="list-group-item">It is written using Django, Python, Bootstrap and JQuery. If you are interested in these technologies then the code shows how to put a reasonably well structured Django site together.</li>
+        <li class="list-group-item">It exposes a set of cognitive services giving examples of the way that this emerging technology may be used.</li>
+    </ul>
+
+    <br>
+    <br>
+    <div class="panel panel-primary">
+      <div class="panel-heading"><h4>Created by Matthew Weaver for Objectivity</h4></div>
+      <div class="panel-body">Please feel free to share your thoughts, ideas and suggestions. The code is available on GitHub and I hope to make regular updates. If you are really eager and want to contribute, just <a href="mailto:mweaver@objectivity.co.uk?Subject=Objectivity%20cognitive%20services%20feedback" target="_top">Send me a mail</a> and I'll give you appropriate access.<br><br>I'd like to say a special thanks to <a href="https://www.python.org/"><kbd>Python</kbd></a> and <a href="https://code.visualstudio.com/"><kbd>Visual Studio Code</kbd></a>...you both rock!</div>
+    </div>
+      <a href="http://www.objectivity.co.uk/about-us/">Objectivity</a> - values driven digital transformation
+{% endblock content %}  
+
+

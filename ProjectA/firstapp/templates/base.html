@@ -1,55 +1,66 @@
 <!--
-Basic html template base file.
-Includes jquery and bootstrap. 
-Matthew Weaver, 2016
+This is the base page from which other pages on this site are derived. 
+It includes JQuery and Bootstrap CDNs. 
+Created by Matthew Weaver 2016 for Objectivity.
 -->
 {% load staticfiles %}
 <!doctype html>
 <html>
-        <head>
-            <title>
-                {% block title %}
-                    The title of my page
-                {% endblock title %}
-            </title>
-            {% block header %}
-                <!-- Links to jquery and bootstrap -->
-                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-            {% endblock header %}     
-            <script>
-                function GoHome() {
-                    window.location.href = "{% url 'home' %}";             
-                }
-                function GoAbout() {
-                    window.location.href = "{% url 'about' %}";             
-                }
-            </script>
-        </head>
-        <body>
-            <header>            
-                <div class="row">
-                <div class="col-sm-1"></div>
-                <div class="col-sm-10">
-                    <br>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary" onclick="GoHome()">Home</button>
-                        <button type="button" class="btn btn-primary" onclick="GoAbout()">About</button>
-                    </div>                    
-                </div>
-                <div class="col-sm-1"></div>
-                </div>
-            </header>
+    <head>
+        <title>
+            {% block title %}
+                The title of my page
+            {% endblock title %}
+        </title>
+        
+        {% block header %}
+            <!-- Links to jquery and bootstrap -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        {% endblock header %}     
+        <script>
+            <!-- Click event for the Home button shown in the page header -->
+            function GoHome() {
+                window.location.href = "{% url 'home' %}";             
+            }
+            
+            <!-- Click event for the About button shown in the page header -->
+            function GoAbout() {
+                window.location.href = "{% url 'about' %}";             
+            }
+
+            <!-- Click event for the Sentiment analysis button shown in the page header -->
+            function GoSentimentAnalysis() {
+                window.location.href = "{% url 'sentiment' %}";             
+            }
+        </script>
+    </head>
+    <body>
+        <!-- The page header provides simple site navigation -->
+        <header>            
             <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-10">
-                {% block content %}
-                    Base.html body content
-                {% endblock content %} 
+                <br>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" onclick="GoHome()">Home</button>
+                    <button type="button" class="btn btn-primary" onclick=" GoSentimentAnalysis()">Sentiment analysis</button>
+                    <button type="button" class="btn btn-primary" onclick="GoAbout()">About</button>
+                </div>                    
             </div>
             <div class="col-sm-1"></div>
-            </div>           
-        </body>
+            </div>
+        </header>
+        <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            {% block content %}
+                Base.html body content
+            {% endblock content %} 
+        </div>
+        <div class="col-sm-1"></div>
+        </div>           
+    </body>
 </html>
 
