@@ -9,5 +9,12 @@ Matthew Weaver, 2016
 {% block content %}
     <br>
     <h1>Sentiment analysis</h1>
-
+    <br>
+    <form>
+        <div class="form-group">
+            <label for="textAnalysis">Type or paste text here</label>
+            <textarea class="form-control" rows="5" id="textAnalysis"></textarea>
+        </div>
+        <button type="submit" class="btn btn-default"> Analyse</button>
+    </form>
 {% endblock content %} 
