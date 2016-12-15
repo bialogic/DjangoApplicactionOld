@@ -6,6 +6,23 @@ Matthew Weaver, 2016
 {% block title %}
     Sentiment Analysis - {{ block.super }}
 {% endblock title %}
+
+{% block header %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
+    <script>
+        <!-- Click event for the Home button shown in the page header -->
+        function PositiveSample() {
+            document.getElementById("sentimentText").value = 'The holiday was simply amazing. The food was excellent and we met some really interesting people. Relaxing on the beach in the glorious sunshine is something I definitely need to do more.';           
+        }
+        
+        <!-- Click event for the About button shown in the page header -->
+        function NegativeSample() {
+            document.getElementById("sentimentText").value = 'Well I do not want to go through that ordeal again. It was a complete nightmare. Spending 8 hours in traffic with nobody to talk to is just the worst possible way to spend a day.';             
+        }
+    </script>
+{% endblock header %}
 {% block content %}
     <br>
     <h1>Sentiment analysis</h1>
@@ -13,8 +30,14 @@ Matthew Weaver, 2016
     <form>
         <div class="form-group">
             <label for="textAnalysis">Type or paste text here</label>
-            <textarea class="form-control" rows="5" id="textAnalysis"></textarea>
+            <textarea id="sentimentText" class="form-control" rows="5" id="textAnalysis"></textarea>
         </div>
+        <br>
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary" onclick="PositiveSample()">Positive sample</button>
+            <button type="button" class="btn btn-primary" onclick=" NegativeSample()">Negative sample</button>
+        </div> 
+        <br><br>
         <button type="submit" class="btn btn-default"> Analyse</button>
     </form>
 {% endblock content %} 
