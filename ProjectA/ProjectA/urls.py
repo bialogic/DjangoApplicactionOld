@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^about', views.about, name='about'),
     url(r'^sentiment', views.sentiment, name='sentiment'),
+    url(r'^sentiment_post', views.sentiment, name='sentiment_post'),
     url(r'^admin/', admin.site.urls),
 ]
 

@@ -39,18 +39,27 @@ Created by Matthew Weaver 2016 for Objectivity.
     <body>
         <!-- The page header provides simple site navigation -->
         <header>            
-            <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-10">
-                <br>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-primary" onclick="GoHome()">Home</button>
-                    <button type="button" class="btn btn-primary" onclick=" GoSentimentAnalysis()">Sentiment analysis</button>
-                    <button type="button" class="btn btn-primary" onclick="GoAbout()">About</button>
-                </div>                    
-            </div>
-            <div class="col-sm-1"></div>
-            </div>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                <div class="navbar-header">
+                <a class="navbar-brand" href="#">Objectivity</a>
+                </div>
+                <ul class="nav navbar-nav">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Services
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'sentiment' %}">Sentiment analysis</a></li>
+                        <li><a href="#">Book query</a></li>
+                        <li><a href="#">Other</a></li>
+                    </ul>
+                </li>               
+                <li><a href="{% url 'about' %}">About</a></li>
+                </ul>
+                </div>
+            </nav>           
         </header>
         <div class="row">
         <div class="col-sm-1"></div>

@@ -22,7 +22,22 @@ def sentiment(request):
     """
     Handles requests for the sentiment analysis page if a match is found in urls.py
     """
-    return render(request, 'SentimentAnalysis.html')
+    if request.method == 'POST':
+        # request.POST.get()
+        # Need to call the cognitive service here.
+
+        #
+        text_data = request.POST.get('sent_text')
+
+        return render(request, 'SentimentAnalysis.html', {'sentiment_text':text_data,})
+
+
+
+
+
+
+    text_prompt = 'Please enter text here'
+    return render(request, 'SentimentAnalysis.html', {'text_prompt':text_prompt})
 
 
 
