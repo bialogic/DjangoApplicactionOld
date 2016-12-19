@@ -9,7 +9,6 @@ Steps
 Remember to add the name of your app to the INSTALLED_APPS list in the settings file. 
 Remember to add Git repository
 
- 
 
 
 

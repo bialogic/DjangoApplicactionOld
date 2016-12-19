@@ -35,7 +35,7 @@ Matthew Weaver, 2016
     <br>
     <form action="sentiment_post" method="post">{% csrf_token %}
         <div class="form-group">
-            <textarea id="sent_text" name="sent_text" class="form-control" rows="5" id="textAnalysis">{{sentiment_text}}</textarea>
+            <textarea id="sent_text" name="sent_text" class="form-control" rows="5" id="textAnalysis">{{text_data}}</textarea>
         </div>
         <br>
         <div class="btn-group">
@@ -43,8 +43,18 @@ Matthew Weaver, 2016
             <button type="button" class="btn btn-primary" onclick="NegativeSample()">Negative sample</button>
         </div> 
         <br><br>
-        <button type="submit" class="btn btn-default"> Analyse</button>
+        <button type="submit" class="btn btn-default">Analyse</button>
         <br><br>
-        <p>{{sentiment_text}}</p>
+
+        {% for i in sentiment_response.sentences %}
+            {% if i.sentiment.score < -0.33 %}
+                <li class="list-group-item list-group-item-danger">{{i.text.content}}</li>            
+            {% elif i.sentiment.score > 0.33 %}
+                <li class="list-group-item list-group-item-success">{{i.text.content}}</li>   
+            {% else %}
+                <li class="list-group-item list-group-item-warning">{{i.text.content}}</li>
+            {% endif %}
+        {% endfor %}
     </form>
+    <br>
 {% endblock content %} 

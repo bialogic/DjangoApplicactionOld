@@ -1,0 +1,38 @@
+<!--
+Uses the Google Book API to retrieve books related to the search criteria.
+This is really just a simple test to ensure the API services are being called successfully.
+Matthew Weaver, 2016
+-->
+{% extends 'base.html' %}
+{% block title %}
+    Sentiment Analysis - {{ block.super }}
+{% endblock title %}
+
+{% block header %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
+    <script>
+
+    </script>
+{% endblock header %}
+{% block content %}
+    <br>
+    <h1>Book query</h1>
+    <p>This demo uses the Google Book API to find books relating to the search criteria.<br></p>
+    <br>
+    <form action="book_post" method="post">{% csrf_token %}
+        <div class="form-group">
+            <input id="book_query" name="book_query" class="form-control" value={{book_query}}></input>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-default">Search</button>
+        <br><br>
+        <ul class="list-group">
+            <!-- Loop through each book and display the title -->
+            {% for i in book_data.items %}
+                <li class="list-group-item list-group-item-info">{{i.volumeInfo.title}}</li>
+            {% endfor %}
+        </ul>
+    </form>
+{% endblock content %} 
