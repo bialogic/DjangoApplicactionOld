@@ -45,16 +45,48 @@ Matthew Weaver, 2016
         <br><br>
         <button type="submit" class="btn btn-default">Analyse</button>
         <br><br>
+        
 
-        {% for i in sentiment_response.sentences %}
-            {% if i.sentiment.score < -0.33 %}
-                <li class="list-group-item list-group-item-danger">{{i.text.content}}</li>            
-            {% elif i.sentiment.score > 0.33 %}
-                <li class="list-group-item list-group-item-success">{{i.text.content}}</li>   
-            {% else %}
-                <li class="list-group-item list-group-item-warning">{{i.text.content}}</li>
-            {% endif %}
-        {% endfor %}
+        <h3>Summary output</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Score</th>
+                    <th>magnitude</th>
+                    <th>Sentence</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--  -->
+                {% for i in sentiment_response.sentences %}
+                    {% if i.sentiment.score < -0.33 %}
+                        <tr class="danger">
+                            <td>{{i.sentiment.score}}</td>
+                            <td>{{i.sentiment.magnitude}}</td>
+                            <td>{{i.text.content}}</td>
+                        </tr>            
+                    {% elif i.sentiment.score > 0.33 %}
+                        <tr class="success">
+                            <td>{{i.sentiment.score}}</td>
+                            <td>{{i.sentiment.magnitude}}</td>
+                            <td>{{i.text.content}}</td>
+                        </tr> 
+                    {% else %}
+                        <tr class="warning">
+                            <td>{{i.sentiment.score}}</td>
+                            <td>{{i.sentiment.magnitude}}</td>
+                            <td>{{i.text.content}}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+
+    
+    
+    
+    
+    
     </form>
     <br>
 {% endblock content %} 
