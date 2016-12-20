@@ -26,13 +26,52 @@ Matthew Weaver, 2016
 {% block content %}
     <br>
     <h1>Sentiment analysis</h1>
-    <p>This demo measures the overall sentiment of the text in the input field below. Enter or paste in some text and then press the analyse button. Alternatively, click the positive sample and negative sample buttons if you want ready made examples of positive and negative text. 
-    Use cases for this service include:<br></p>
-      <ul>
-    <li>Automated email processing</li>
-    <li>Customer service responses</li>
-    <li>Checking text from sales & marketing documentation</li>
-  </ul>
+    <p>This demo measures the overall sentiment of the text in the input field below. 
+        Enter or paste in some text and then press the analyse button. Alternatively, 
+        click the positive sample and negative sample buttons if you want ready made examples 
+        of positive and negative text. 
+    </p>
+    <br>
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse1">Where might this service be used?</a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <b>Email processing</b><br>
+                        The service can process inbound emails and identify messages 
+                        from customers that have a prevailing negative sentiment. In 
+                        this way, you can choose to respond quickly to emails that may 
+                        need urgent attention. Adjusting the sensitivity over time will 
+                        allow you to focus on emails that are particularly important.
+                    </li>
+                    <li class="list-group-item">
+                        <b>Proposals and document submissions</b><br>
+                        It's important to be positive! This service can analyse documents 
+                        prior to submission to identify areas that may benefit from a slightly 
+                        different emphasis. Also, entity analysis will help you to focus on 
+                        the right things.<br>
+                    </li>
+                    <li class="list-group-item">
+                        <b>Staff training including audio analysis</b><br>
+                        This gets really interesting when combined with audio recognition. 
+                        For example, a telephone call can be automatically transcribed and 
+                        then checked for overall sentiment. As previously, entity analysis 
+                        will show the common themes of a discussion.
+                    </li>
+                </ul>
+                <div class="panel-footer">
+                    Do you have a scenario where sentiment analysis may help? 
+                    <a href="mailto:mweaver@objectivity.co.uk?Subject=Sentiment%20analysis" target="_top">
+                        Please get in touch</a>
+                </div>
+            </div>
+        </div>
+    </div> 
     <br>
     <form action="sentiment_post" method="post">{% csrf_token %}
         <div class="form-group">
