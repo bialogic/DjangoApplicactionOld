@@ -14,19 +14,20 @@ Matthew Weaver, 2016
     <script>
         <!-- Click event for the Home button shown in the page header -->
         function PositiveSample() {
-            document.getElementById("sent_text").value = 'The holiday was simply amazing. The food was excellent and we met some really interesting people. Relaxing on the beach in the glorious sunshine is something I definitely need to do more.';           
+            document.getElementById("sent_text").value = 'We just returned from a wonderful holiday in Paris. The hotel was excellent and so was the food. It was our first holiday in some time and we definitely enjoyed the break. I am giving our hotel a five star rating when we get home and I will definitely consider going there again next year.';           
         }
         
         <!-- Click event for the About button shown in the page header -->
         function NegativeSample() {
-            document.getElementById("sent_text").value = 'Well I do not want to go through that ordeal again. It was a complete nightmare. Spending 8 hours in traffic with nobody to talk to is just the worst possible way to spend a day.';             
+            document.getElementById("sent_text").value = 'What an awful holiday! There was a five hour flight delay and the cabin crew were rude beyond belief. The hotel was dirty and I would not feed my dog with the food they served us. I will definitely not be going back there again. I am giving our hotel a zero star rating when I get home.';             
         }
     </script>
 {% endblock header %}
 {% block content %}
     <br>
     <h1>Sentiment analysis</h1>
-    <p>This demo measures the overall sentiment of the information that you enter below. It calculates a score and returns this as a percentage. A low score implies an overall negative sentiment and a high score implies an overall positive sentiment.<br><br>Use cases for this service include:<br></p>
+    <p>This demo measures the overall sentiment of the text in the input field below. Enter or paste in some text and then press the analyse button. Alternatively, click the positive sample and negative sample buttons if you want ready made examples of positive and negative text. 
+    Use cases for this service include:<br></p>
       <ul>
     <li>Automated email processing</li>
     <li>Customer service responses</li>
@@ -81,12 +82,6 @@ Matthew Weaver, 2016
                 {% endfor %}
             </tbody>
         </table>
-
-    
-    
-    
-    
-    
     </form>
     <br>
 {% endblock content %} 
