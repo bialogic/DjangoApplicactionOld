@@ -92,7 +92,33 @@ Matthew Weaver, 2016
         </div> 
         <button type="submit" class="btn btn-default">Analyse</button>
         <br><br><br>
-        <h3>Summary output</h3>
+        
+         <h3>Entity output (top 10)</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Entity</th>
+                    <th>Salience</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--  -->
+                {% for i in entity_response.entities|slice:":10" %}
+
+                    <tr class="default">
+                        <td>{{i.name}}</td>
+                        <td>{{i.salience}}</td>
+                        <td>{{i.type}}</td>
+                    </tr>            
+
+                {% endfor %}
+            </tbody>
+        </table>       
+        
+        
+        <br>
+        <h3>Sentiment output</h3>
         <table class="table">
             <thead>
                 <tr>

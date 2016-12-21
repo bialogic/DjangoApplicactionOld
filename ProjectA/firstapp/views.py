@@ -39,15 +39,31 @@ def sentiment(request):
                 'document': {
                     'type': 'PLAIN_TEXT',
                     'content': text_data,
-                    }
+                    },
                 }
         )
 
         sentiment_response = sentiment_request.execute()
 
-    MattUtils.write_json_to_file(r'F:\dev\jsonData.txt', sentiment_response)
+
+        entity_request = service.documents().analyzeEntities(
+            body={
+                'document': {
+                    'type': 'PLAIN_TEXT',
+                    'content': text_data,
+                    },
+                }
+        )
+
+        entity_response = entity_request.execute()
+
+
+
+
+
+    MattUtils.write_json_to_file(r'F:\dev\jsonData.txt', entity_response)
     return render(request, 'SentimentAnalysis.html',
-                  {'sentiment_response':sentiment_response, 'text_data':text_data})
+                  {'sentiment_response':sentiment_response, 'text_data':text_data, 'entity_response':entity_response, 'range':range(10)})
 
 def book(request):
     """
