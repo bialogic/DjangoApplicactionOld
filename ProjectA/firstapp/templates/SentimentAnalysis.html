@@ -104,7 +104,7 @@ Matthew Weaver, 2016
             </thead>
             <tbody>
                 <!--  -->
-                {% for i in entity_response.entities|slice:":10" %}
+                {% for i in entity_response.entities %}
 
                     <tr class="default">
                         <td>{{i.name}}</td>
